@@ -1,0 +1,37 @@
+{
+  "name": "slownami",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "keywords": [
+    "performance",
+    "logging",
+    "slow functions",
+    "monitoring"
+  ],
+  "author": "Kishon",
+  "license": "MIT",
+  "type": "commonjs",
+  "description": "Log any function that runs too slow — simple performance monitoring for Node.js or browser.",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kishon45229/slownami.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kishon45229/slownami/issues"
+  },
+  "homepage": "https://github.com/kishon45229/slownami"
+}
