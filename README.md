@@ -16,7 +16,7 @@ npm install slownami
 
 Wrap any function call with `slownami` to monitor its execution time. If it runs longer than your threshold, a warning is logged.
 
-## Real-world Example
+## Example
 
 You can use `slownami` to monitor any function, such as database queries, API calls, or expensive computations:
 
