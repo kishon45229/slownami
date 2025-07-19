@@ -1,23 +1,20 @@
 export async function slownami<T>(
-  fn: () => Promise<T> | T,
-  label = "unnamed",
-  thresholdMs = 300,
+  fn: () => T | Promise<T>,
+  label: string = "unnamed",
+  threshold: number = 300,
   logger: (msg: string) => void = console.warn
 ): Promise<T> {
-  const start =
-    typeof performance !== "undefined" ? performance.now() : Date.now();
-  const result = await fn();
-  const end =
-    typeof performance !== "undefined" ? performance.now() : Date.now();
+  const start = typeof performance !== "undefined" && performance.now ? performance.now() : Date.now();
+
+  const result = fn();
+  const awaited = result instanceof Promise ? await result : result;
+
+  const end = typeof performance !== "undefined" && performance.now ? performance.now() : Date.now();
   const duration = end - start;
 
-  if (duration > thresholdMs) {
-    logger(
-      `[slownami] ${label} took ${Math.round(
-        duration
-      )}ms (threshold: ${thresholdMs}ms)`
-    );
+  if (duration > threshold) {
+    logger(`[slownami] ${label} took ${Math.round(duration)}ms (threshold: ${threshold}ms)`);
   }
 
-  return result;
+  return awaited;
 }
